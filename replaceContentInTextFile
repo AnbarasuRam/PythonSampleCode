@@ -1,0 +1,6 @@
+import sys
+import fileinput
+
+# replace all occurrences of 'teacher' with ' '
+for i, line in enumerate(fileinput.input('test.txt', inplace=1)):
+    sys.stdout.write(line.replace('teacher', ' '))  # replace 'teacher' and write
