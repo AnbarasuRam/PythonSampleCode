@@ -1,7 +1,8 @@
 import os
+from shutil import copyfile
 
 max_mtime = 0
-for dirname,subdirs,files in os.walk("C:\\directory_containing_the_files\\"):
+for dirname,subdirs,files in os.walk("C:\\Users\\anbarasu.r\\Desktop\\Metlife\\LTC\\2016_01-JAN\\Exception Reports\\"):
     for fname in files:
         full_path = os.path.join(dirname, fname)
         mtime = os.stat(full_path).st_mtime
@@ -12,3 +13,9 @@ for dirname,subdirs,files in os.walk("C:\\directory_containing_the_files\\"):
 
 print max_dir
 print max_file
+
+recent_file = os.path.join(max_dir, max_file)
+recent_file_copy = os.path.join(max_dir, "file_copy.pdf")
+copyfile(recent_file, recent_file_copy)
+
+os.rename(recent_file_copy, os.path.join(max_dir, "file_copy_renamed.pdf"))
