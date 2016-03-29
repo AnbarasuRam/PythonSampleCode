@@ -1,0 +1,9 @@
+import win32com.client
+oAccess = win32com.client.Dispatch('Access.Application')
+DbFile = r'C:\Users\hans\Documents\NewDb.mdb'
+dbLangGeneral = ';LANGID=0x0409;CP=1252;COUNTRY=0'
+# dbVersion40 64
+dbVersion = 64
+oAccess.DBEngine.CreateDatabase(DbFile, dbLangGeneral, dbVersion)
+oAccess.Quit()
+del oAccess
